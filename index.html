@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Lazarus — Tulum Retreat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Pinyon+Script&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & ROOT ── */
+:root {
+  --black: #000000;
+  --black2: #0d0b10;
+  --black3: #141118;
+  --gold: #c5a96b;
+  --gold2: #e2c98a;
+  --gold-dim: rgba(197,169,107,0.15);
+  --cream: #f0ebe0;
+  --cream-dim: rgba(240,235,224,0.55);
+  --muted: rgba(240,235,224,0.35);
+  --sand: #a8957a;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:auto; }
+body {
+  background: var(--black);
+  color: var(--cream);
+  font-family: 'Instrument Sans', sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ── CUSTOM CURSOR ── */
+#cursor-dot {
+  position: fixed; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--gold); pointer-events: none; z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: transform 0.05s, background 0.3s;
+  will-change: transform;
+}
+#cursor-ring {
+  position: fixed; width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid rgba(197,169,107,0.5); pointer-events: none; z-index: 9998;
+  transform: translate(-50%,-50%);
+  transition: transform 0.12s ease, width 0.3s, height 0.3s, border-color 0.3s;
+  will-change: transform;
+}
+body.hovering #cursor-ring { width: 56px; height: 56px; border-color: var(--gold); }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px 60px;
+  pointer-events: none;
+}
+.nav-logo-img {
+  height: 80px;
+  width: auto;
+  opacity: 0.92;
+  transition: opacity 0.3s;
+  pointer-events: all;
+}
+.nav-logo-img:hover { opacity: 1; }
+
+/* ═══════════════════════════════════
+   HERO — Scroll-driven clip-path
+═══════════════════════════════════ */
+#hero-wrapper {
+  position: relative;
+  height: calc(1500px + 100vh);
+  background: #000000;
+}
+
+#hero-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Center expanding image */
+#hero-center {
+  position: absolute; inset: 0;
+  background-image: url('7DDB0AAD-7061-4C2C-8212-584ECA721762.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 170%;
+  clip-path: polygon(25% 25%, 75% 25%, 75% 75%, 25% 75%);
+  will-change: clip-path, background-size, opacity;
+}
+
+/* Gradient overlay on hero image */
+#hero-center::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(7,6,10,0.15) 0%,
+    rgba(7,6,10,0.0) 40%,
+    rgba(7,6,10,0.55) 100%
+  );
+}
+
+
+/* Floating parallax images */
+#parallax-images {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.par-img {
+  position: absolute;
+  overflow: hidden;
+  will-change: transform, opacity;
+}
+.par-img img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+.par-img::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(7,6,10,0.2), transparent);
+}
+
+/* Positioning: will be revealed after some scroll */
+#pimg1 { width: 28vw; height: 38vh; top: 15%; left: 6%; }
+#pimg2 { width: 38vw; height: 46vh; top: 8%; right: 5%; }
+#pimg3 { width: 22vw; height: 52vh; top: 48%; left: 10%; }
+#pimg4 { width: 32vw; height: 38vh; top: 52%; right: 8%; }
+
+/* Bottom fade */
+#hero-wrapper::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 220px;
+  background: linear-gradient(to bottom, transparent, var(--black));
+  pointer-events: none; z-index: 15;
+}
+
+/* ═══════════════════════════════════
+   INTRO — The invitation
+═══════════════════════════════════ */
+#intro {
+  position: relative;
+  background: var(--black);
+  padding: 140px 60px 160px;
+  overflow: hidden;
+}
+.intro-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.intro-left {}
+.intro-label {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 28px;
+  display: flex; align-items: center; gap: 14px;
+}
+.intro-label::before {
+  content: ''; display: block; width: 32px; height: 1px; background: var(--gold);
+}
+.intro-heading {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(44px, 5vw, 76px);
+  font-weight: 400; line-height: 1.08; letter-spacing: -0.02em;
+  color: var(--cream);
+}
+.intro-heading em { font-family: 'Pinyon Script', cursive; font-style: normal; color: var(--gold2); font-weight: 400; font-size: 1.45em; line-height: 0.85; vertical-align: middle; }
+.intro-body {
+  margin-top: 32px;
+  font-size: 16px; font-weight: 300; line-height: 1.8;
+  color: var(--cream-dim); max-width: 440px;
+}
+.intro-right {}
+.amenities-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+}
+.amenity-card {
+  background: var(--black2);
+  padding: 28px 24px;
+  border: 1px solid rgba(197,169,107,0.06);
+  transition: border-color 0.3s, background 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.amenity-card:hover {
+  border-color: rgba(197,169,107,0.2);
+  background: var(--black3);
+}
+.amenity-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.amenity-card:hover::before { opacity: 0.6; }
+.amenity-icon {
+  font-size: 22px; margin-bottom: 14px;
+  filter: grayscale(0.3);
+}
+.amenity-name {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 18px; font-weight: 500; color: var(--cream);
+  margin-bottom: 6px;
+}
+.amenity-desc {
+  font-size: 12px; color: var(--muted); line-height: 1.6;
+  font-weight: 300;
+}
+
+/* ═══════════════════════════════════
+   WHY SECTION
+═══════════════════════════════════ */
+#why {
+  background: var(--black2);
+  padding: 160px 60px;
+  position: relative;
+  overflow: hidden;
+}
+#why::before {
+  content: '';
+  position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+  width: 600px; height: 600px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(197,169,107,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.why-inner { max-width: 1200px; margin: 0 auto; }
+.why-header {
+  text-align: center; margin-bottom: 100px;
+}
+.why-tag {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 20px;
+}
+.why-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(42px, 5vw, 72px); font-weight: 300;
+  letter-spacing: -0.02em; color: var(--cream);
+  line-height: 1.05;
+}
+.why-title em { font-family: 'Pinyon Script', cursive; font-style: normal; color: var(--gold2); font-weight: 400; font-size: 1.45em; line-height: 0.85; vertical-align: middle; }
+.why-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+  border: 1px solid rgba(197,169,107,0.08);
+}
+.why-card {
+  padding: 64px 56px;
+  background: var(--black2);
+  border: 1px solid rgba(197,169,107,0.04);
+  position: relative;
+}
+.why-card-num {
+  position: absolute; top: 40px; right: 48px;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 80px; color: rgba(197,169,107,0.04);
+  line-height: 1; pointer-events: none;
+}
+.why-card-label {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 24px;
+}
+.why-card-heading {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 34px; font-weight: 500; line-height: 1.2; letter-spacing: -0.01em;
+  color: var(--cream); margin-bottom: 22px;
+}
+.why-card-text {
+  font-size: 15px; font-weight: 300; line-height: 1.85;
+  color: var(--cream-dim);
+}
+.why-divider {
+  width: 48px; height: 1px; background: var(--gold);
+  opacity: 0.4; margin: 28px 0;
+}
+
+/* ═══════════════════════════════════
+   GALLERY — Zoom Parallax
+═══════════════════════════════════ */
+#gallery-section {
+  background: #07060a;
+}
+.gallery-header {
+  text-align: center; padding: 120px 60px 0;
+  background: #07060a;
+}
+.gallery-tag {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 20px;
+}
+.gallery-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(40px, 5vw, 68px); font-weight: 300;
+  letter-spacing: -0.02em; color: var(--cream);
+  line-height: 1.05;
+}
+.gallery-title em { font-family: 'Pinyon Script', cursive; font-style: normal; color: var(--gold2); font-weight: 400; font-size: 1.45em; line-height: 0.85; vertical-align: middle; }
+
+#zoom-container {
+  position: relative;
+  height: 300vh;
+}
+#zoom-sticky {
+  position: sticky; top: 0;
+  height: 100vh; overflow: hidden;
+  background: var(--black);
+}
+.zoom-layer {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  display: flex; align-items: center; justify-content: center;
+  will-change: transform;
+}
+.zoom-img-wrap {
+  position: relative; overflow: hidden;
+}
+.zoom-img-wrap img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+
+/* Layer sizes & positions */
+.zoom-layer:nth-child(1) .zoom-img-wrap { width: 25vw; height: 25vh; }
+.zoom-layer:nth-child(2) .zoom-img-wrap {
+  width: 35vw; height: 30vh;
+  position: absolute; top: calc(50% - 45vh); left: calc(50% + 5vw);
+}
+.zoom-layer:nth-child(3) .zoom-img-wrap {
+  width: 20vw; height: 45vh;
+  position: absolute; top: calc(50% - 10vh); left: calc(50% - 45vw);
+}
+.zoom-layer:nth-child(4) .zoom-img-wrap {
+  width: 25vw; height: 25vh;
+  position: absolute; top: calc(50% + 2.5vh); left: calc(50% + 27.5vw);
+}
+.zoom-layer:nth-child(5) .zoom-img-wrap {
+  width: 20vw; height: 25vh;
+  position: absolute; top: calc(50% + 27.5vh); left: calc(50% + 5vw);
+}
+
+/* ═══════════════════════════════════
+   CTA SECTION
+═══════════════════════════════════ */
+#cta-section {
+  background: var(--black);
+  padding: 160px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+#cta-section::before {
+  content: '';
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 800px; height: 800px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(197,169,107,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-label {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 24px;
+}
+.cta-heading {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(50px, 7vw, 100px);
+  font-weight: 300; line-height: 0.95; letter-spacing: -0.03em;
+  color: var(--cream); margin-bottom: 28px;
+}
+.cta-heading em { font-family: 'Pinyon Script', cursive; font-style: normal; color: var(--gold2); font-weight: 400; font-size: 1.45em; line-height: 0.85; vertical-align: middle; }
+.cta-sub {
+  font-size: 15px; font-weight: 300; line-height: 1.7;
+  color: var(--cream-dim); max-width: 480px; margin: 0 auto 56px;
+}
+.cta-btn {
+  display: inline-block;
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 20px 56px;
+  background: var(--gold); color: var(--black);
+  text-decoration: none; cursor: none;
+  position: relative; overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.cta-btn::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: var(--gold2);
+  transform: translateX(-101%);
+  transition: transform 0.3s ease;
+}
+.cta-btn:hover { transform: translateY(-3px); box-shadow: 0 16px 48px rgba(197,169,107,0.25); }
+.cta-btn:hover::before { transform: translateX(0); }
+.cta-btn span { position: relative; z-index: 1; }
+.cta-note {
+  margin-top: 24px;
+  font-size: 12px; color: var(--muted); letter-spacing: 0.05em;
+}
+
+/* ═══════════════════════════════════
+   LOCATIONS SCROLLER
+═══════════════════════════════════ */
+#locations {
+  background: var(--black2);
+  padding: 120px 0;
+  overflow: hidden;
+}
+.locations-header {
+  text-align: center; padding: 0 60px; margin-bottom: 72px;
+}
+.locations-tag {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 16px;
+}
+.locations-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(36px, 4vw, 60px); font-weight: 300;
+  letter-spacing: -0.02em; color: var(--cream);
+}
+.locations-title em { font-family: 'Pinyon Script', cursive; font-style: normal; color: var(--gold2); font-weight: 400; font-size: 1.45em; line-height: 0.85; vertical-align: middle; }
+.locations-desc {
+  margin-top: 16px;
+  font-size: 14px; font-weight: 300; color: var(--cream-dim);
+  max-width: 420px; margin: 16px auto 0; line-height: 1.7;
+}
+
+/* Marquee */
+.marquee-row { overflow: hidden; padding: 14px 0; }
+.marquee-row--reverse .marquee-track { animation-direction: reverse; }
+.marquee-track {
+  display: flex; gap: 0;
+  animation: marquee 36s linear infinite;
+  width: max-content;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.location-chip {
+  display: inline-flex; align-items: center; gap: 14px;
+  padding: 0 48px;
+  white-space: nowrap;
+  border-right: 1px solid rgba(197,169,107,0.12);
+}
+.location-flag { font-size: 22px; }
+.location-name {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 26px; font-weight: 400; letter-spacing: 0.02em;
+  color: var(--cream-dim);
+  transition: color 0.2s;
+}
+.location-chip:hover .location-name { color: var(--gold2); }
+.location-future {
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold); opacity: 0.7;
+}
+
+/* Fade edges */
+.marquee-fade {
+  position: relative;
+}
+.marquee-fade::before,
+.marquee-fade::after {
+  content: '';
+  position: absolute; top: 0; bottom: 0; width: 160px; z-index: 2;
+  pointer-events: none;
+}
+.marquee-fade::before {
+  left: 0;
+  background: linear-gradient(to right, var(--black2), transparent);
+}
+.marquee-fade::after {
+  right: 0;
+  background: linear-gradient(to left, var(--black2), transparent);
+}
+
+/* ═══════════════════════════════════
+   FOOTER
+═══════════════════════════════════ */
+footer {
+  background: var(--black);
+  border-top: 1px solid rgba(197,169,107,0.1);
+  padding: 60px 60px 40px;
+}
+.footer-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 48px;
+}
+.footer-logo {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 18px; letter-spacing: 0.18em; font-weight: 700;
+  text-transform: uppercase; color: var(--cream);
+}
+.footer-logo span { color: var(--gold); }
+.footer-links { display: flex; gap: 32px; }
+.footer-links a {
+  font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none; transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--gold); }
+.footer-bottom {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.04);
+}
+.footer-copy {
+  font-size: 12px; color: var(--muted); letter-spacing: 0.04em;
+}
+.footer-tagline {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 14px; font-style: italic; color: var(--gold);
+  opacity: 0.7;
+}
+
+/* ═══════════════════════════════════
+   SCROLL REVEAL UTILITY
+═══════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.85s cubic-bezier(0.16,1,0.3,1), transform 0.85s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.visible {
+  opacity: 1; transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.22s; }
+.reveal-delay-3 { transition-delay: 0.34s; }
+.reveal-delay-4 { transition-delay: 0.46s; }
+
+/* Gold line separator */
+.gold-line {
+  width: 56px; height: 1px; background: var(--gold);
+  opacity: 0.45; margin: 0 auto;
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#"><img class="nav-logo-img" src="CF078F28-F7EA-4D94-B288-26EC91C99464.png" alt="Project Lazarus"></a>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<div id="hero-wrapper">
+  <div id="hero-sticky">
+    <!-- Expanding center image -->
+    <div id="hero-center"></div>
+
+    <!-- Floating parallax images -->
+    <div id="parallax-images">
+      <div class="par-img" id="pimg1">
+        <img src="C3D1309A-1866-43C6-83BE-9A0C88E434C3_1_201_a.jpeg" alt="Tulum villa at night">
+      </div>
+      <div class="par-img" id="pimg2">
+        <img src="C59807EB-E114-49C1-A94D-F73282FE7CE2.jpeg" alt="Private yacht">
+      </div>
+      <div class="par-img" id="pimg3">
+        <img src="9C19919C-CE7B-48F8-B3C8-F749010D739F.jpeg" alt="Cenote swim">
+      </div>
+      <div class="par-img" id="pimg4">
+        <img src="6E80AAC2-48E6-4158-8D7E-2CE9A3BB5240.jpeg" alt="Tulum coast">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ INTRO ═══ -->
+<section id="intro">
+  <div class="intro-grid">
+    <div class="intro-left">
+      <p class="intro-label reveal">The Invitation</p>
+      <h2 class="intro-heading reveal reveal-delay-1">
+        Join us on an<br><em>unforgettable</em><br>journey.
+      </h2>
+      <p class="intro-body reveal reveal-delay-2">
+        Nestled in the heart of Tulum, Mexico, Project Lazarus is your gateway to a week of pure, unfiltered luxury. We've assembled everything extraordinary — a magnificent private villa, a gleaming yacht, jet skis cutting through Caribbean waters, and moments of golden stillness that linger long after you return home.
+      </p>
+      <p class="intro-body reveal reveal-delay-3" style="margin-top:16px;">
+        This is not a vacation. This is a resurrection.
+      </p>
+    </div>
+    <div class="intro-right">
+      <div class="amenities-grid">
+        <div class="amenity-card reveal reveal-delay-1">
+          <div class="amenity-icon">🏛️</div>
+          <div class="amenity-name">Giant Private Villa</div>
+          <div class="amenity-desc">Sprawling estate with private pool, chef's kitchen & ocean views</div>
+        </div>
+        <div class="amenity-card reveal reveal-delay-2">
+          <div class="amenity-icon">⛵</div>
+          <div class="amenity-name">Private Yacht</div>
+          <div class="amenity-desc">Full-day sailing along the Riviera Maya, snorkeling at hidden reefs</div>
+        </div>
+        <div class="amenity-card reveal reveal-delay-3">
+          <div class="amenity-icon">🌊</div>
+          <div class="amenity-name">Jet Skis & Water Sports</div>
+          <div class="amenity-desc">Race across turquoise water, explore hidden coves</div>
+        </div>
+        <div class="amenity-card reveal reveal-delay-4">
+          <div class="amenity-icon">🌿</div>
+          <div class="amenity-name">Sacred Cenote Tours</div>
+          <div class="amenity-desc">Private access to ancient Mayan cenotes & jungle swims</div>
+        </div>
+        <div class="amenity-card reveal reveal-delay-1">
+          <div class="amenity-icon">🍽️</div>
+          <div class="amenity-name">Private Chef</div>
+          <div class="amenity-desc">Daily gourmet dining experiences crafted for the group</div>
+        </div>
+        <div class="amenity-card reveal reveal-delay-2">
+          <div class="amenity-icon">🌅</div>
+          <div class="amenity-name">Jungle & Rooftop Parties</div>
+          <div class="amenity-desc">Sunset rituals, fire ceremonies & rooftop evenings</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHY PROJECT LAZARUS ═══ -->
+<section id="why">
+  <div class="why-inner">
+    <div class="why-header">
+      <p class="why-tag reveal">Why Project Lazarus</p>
+      <h2 class="why-title reveal reveal-delay-1">
+        Accessible <em>luxury.</em><br>Designed with intention.
+      </h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-card-num">01</div>
+        <p class="why-card-label">The Vision</p>
+        <h3 class="why-card-heading">Two founders. One shared obsession.</h3>
+        <div class="why-divider"></div>
+        <p class="why-card-text">
+          Adrian and Constantin — two founders, one shared obsession. After years of witnessing how extraordinary travel experiences were locked behind absurd price tags, they decided to shatter the status quo.
+        </p>
+        <p class="why-card-text" style="margin-top:16px;">
+          Project Lazarus was born from a radical idea: that everyone deserves to live unforgettable moments without emptying their bank account.
+        </p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-card-num">02</div>
+        <p class="why-card-label">The Promise</p>
+        <h3 class="why-card-heading">Once-in-a-lifetime, every single time.</h3>
+        <div class="why-divider"></div>
+        <p class="why-card-text">
+          We curate once-in-a-lifetime retreat experiences — stunning villas, private yachts, adrenaline-fueled adventures, and golden sunsets — all at a fraction of what you'd expect.
+        </p>
+        <p class="why-card-text" style="margin-top:16px;">
+          This isn't budget travel. This is <strong style="color:var(--cream);font-weight:500;">accessible luxury</strong>, designed with intention, delivered with soul.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GALLERY ═══ -->
+<section id="gallery-section">
+  <div class="gallery-header">
+    <p class="gallery-tag reveal">The Experience</p>
+    <h2 class="gallery-title reveal reveal-delay-1">Scroll into <em>paradise.</em></h2>
+    <p style="font-size:13px;color:var(--muted);margin-top:14px;font-weight:300;letter-spacing:0.04em;" class="reveal reveal-delay-2">↓ Keep scrolling</p>
+  </div>
+
+  <div id="zoom-container">
+    <div id="zoom-sticky">
+      <!-- Layer 1: Center -->
+      <div class="zoom-layer" data-scale-start="1" data-scale-end="4">
+        <div class="zoom-img-wrap">
+          <img src="7DDB0AAD-7061-4C2C-8212-584ECA721762.jpeg" alt="Villa pool">
+        </div>
+      </div>
+      <!-- Layer 2: Top right -->
+      <div class="zoom-layer" data-scale-start="1" data-scale-end="5">
+        <div class="zoom-img-wrap" style="width:35vw;height:30vh;position:absolute;top:calc(50% - 42vh);left:calc(50% + 4vw)">
+          <img src="C3D1309A-1866-43C6-83BE-9A0C88E434C3_1_201_a.jpeg" alt="Night villa">
+        </div>
+      </div>
+      <!-- Layer 3: Left -->
+      <div class="zoom-layer" data-scale-start="1" data-scale-end="6">
+        <div class="zoom-img-wrap" style="width:20vw;height:45vh;position:absolute;top:calc(50% - 10vh);left:calc(50% - 44vw)">
+          <img src="9C19919C-CE7B-48F8-B3C8-F749010D739F.jpeg" alt="Cenote">
+        </div>
+      </div>
+      <!-- Layer 4: Bottom right -->
+      <div class="zoom-layer" data-scale-start="1" data-scale-end="5">
+        <div class="zoom-img-wrap" style="width:28vw;height:28vh;position:absolute;top:calc(50% + 26vh);left:calc(50% + 22vw)">
+          <img src="C59807EB-E114-49C1-A94D-F73282FE7CE2.jpeg" alt="Yacht">
+        </div>
+      </div>
+      <!-- Layer 5: Bottom left -->
+      <div class="zoom-layer" data-scale-start="1" data-scale-end="8">
+        <div class="zoom-img-wrap" style="width:22vw;height:26vh;position:absolute;top:calc(50% + 24vh);left:calc(50% - 42vw)">
+          <img src="6E80AAC2-48E6-4158-8D7E-2CE9A3BB5240.jpeg" alt="Tulum coast">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section id="cta-section">
+  <p class="cta-label reveal">Limited Spots Available</p>
+  <h2 class="cta-heading reveal reveal-delay-1">
+    Your next chapter<br>starts <em>here.</em>
+  </h2>
+  <p class="cta-sub reveal reveal-delay-2">
+    Applications are open. Spots are strictly limited to keep the experience intimate and exceptional. Don't miss your seat at the table.
+  </p>
+  <div class="reveal reveal-delay-3">
+    <a class="cta-btn" href="#"><span>Apply Now</span></a>
+  </div>
+  <p class="cta-note reveal reveal-delay-4">Application takes 2 minutes · Response within 48 hours</p>
+</section>
+
+<!-- ═══ LOCATIONS ═══ -->
+<section id="locations">
+  <div class="locations-header">
+    <p class="locations-tag reveal">What's Next</p>
+    <h2 class="locations-title reveal reveal-delay-1">Coming to a <em>world</em> near you.</h2>
+    <p class="locations-desc reveal reveal-delay-2">
+      Tulum is just the beginning. Project Lazarus is taking the experience global.
+    </p>
+  </div>
+
+  <div class="marquee-fade">
+    <!-- Row 1 -->
+    <div class="marquee-row">
+      <div class="marquee-track">
+        <!-- First copy -->
+        <div class="location-chip">
+          <span class="location-flag">🇮🇩</span>
+          <span class="location-name">Indonesia</span>
+        </div>
+        <div class="location-chip">
+          <span class="location-flag">🇪🇬</span>
+          <span class="location-name">Egypt</span>
+        </div>
+        <div class="location-chip">
+          <span class="location-flag">🇯🇵</span>
+          <span class="location-name">Japan</span>
+        </div>
+        <div class="location-chip">
+          <span class="location-flag">🇦🇺</span>
+          <span class="location-name">Australia</span>
+        </div>
+        <div class="location-chip">
+          <span class="location-flag">🇰🇬</span>
+          <span class="location-name">Kyrgyzstan</span>
+        </div>
+        <div class="location-chip">
+          <span class="location-flag">🇿🇦</span>
+          <span class="location-name">South Africa</span>
+        </div>
+        <div class="location-chip">
+          <span class="location-flag">🇹🇭</span>
+          <span class="location-name">Thailand</span>
+        </div>
+        <!-- Duplicate copy for seamless loop -->
+        <div class="location-chip">
+          <span class="location-flag">🇮🇩</span>
+          <span class="location-name">Indonesia</span>
+        </div>
+        <div class="location-chip">
+          <span class="location-flag">🇪🇬</span>
+          <span class="location-name">Egypt</span>
+        </div>
+        <div class="location-chip">
+          <span class="location-flag">🇯🇵</span>
+          <span class="location-name">Japan</span>
+        </div>
+        <div class="location-chip">
+          <span class="location-flag">🇦🇺</span>
+          <span class="location-name">Australia</span>
+        </div>
+        <div class="location-chip">
+          <span class="location-flag">🇰🇬</span>
+          <span class="location-name">Kyrgyzstan</span>
+        </div>
+        <div class="location-chip">
+          <span class="location-flag">🇿🇦</span>
+          <span class="location-name">South Africa</span>
+        </div>
+        <div class="location-chip">
+          <span class="location-flag">🇹🇭</span>
+          <span class="location-name">Thailand</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2 (reverse) -->
+    <div class="marquee-row marquee-row--reverse" style="margin-top:2px;">
+      <div class="marquee-track">
+        <div class="location-chip">
+          <span class="location-flag">🇹🇭</span>
+          <span class="location-name">Thailand</span>
+        </div>
+        <div class="location-chip">
+          <span class="location-flag">🇿🇦</span>
+          <span class="location-name">South Africa</span>
+        </div>
+        <div class="location-chip">
+          <span class="location-flag">🇰🇬</span>
+          <span class="location-name">Kyrgyzstan</span>
+        </div>
+        <div class="location-chip">
+          <span class="location-flag">🇦🇺</span>
+          <span class="location-name">Australia</span>
+        </div>
+        <div class="location-chip">
+          <span class="location-flag">🇯🇵</span>
+          <span class="location-name">Japan</span>
+        </div>
+        <div class="location-chip">
+          <span class="location-flag">🇪🇬</span>
+          <span class="location-name">Egypt</span>
+        </div>
+        <div class="location-chip">
+          <span class="location-flag">🇮🇩</span>
+          <span class="location-name">Indonesia</span>
+        </div>
+        <div class="location-chip">
+          <span class="location-flag">🇹🇭</span>
+          <span class="location-name">Thailand</span>
+        </div>
+        <div class="location-chip">
+          <span class="location-flag">🇿🇦</span>
+          <span class="location-name">South Africa</span>
+        </div>
+        <div class="location-chip">
+          <span class="location-flag">🇰🇬</span>
+          <span class="location-name">Kyrgyzstan</span>
+        </div>
+        <div class="location-chip">
+          <span class="location-flag">🇦🇺</span>
+          <span class="location-name">Australia</span>
+        </div>
+        <div class="location-chip">
+          <span class="location-flag">🇯🇵</span>
+          <span class="location-name">Japan</span>
+        </div>
+        <div class="location-chip">
+          <span class="location-flag">🇪🇬</span>
+          <span class="location-name">Egypt</span>
+        </div>
+        <div class="location-chip">
+          <span class="location-flag">🇮🇩</span>
+          <span class="location-name">Indonesia</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:64px;padding:0 60px;" class="reveal">
+    <p style="font-size:13px;color:var(--muted);letter-spacing:0.08em;font-weight:300;">
+      New destinations announced regularly — <a href="#cta-section" style="color:var(--gold);text-decoration:none;">apply to be first to know</a>
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo"><span>P</span>ROJECT LAZARUS</div>
+    <div class="footer-links">
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">Contact</a>
+      <a href="#cta-section">Apply</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Project Lazarus. All rights reserved.</p>
+    <p class="footer-tagline">"Not budget travel. Accessible luxury."</p>
+  </div>
+</footer>
+
+<!-- ═══════════════ SCRIPTS ═══════════════ -->
+<script>
+/* ── Force top on load ── */
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+window.scrollTo(0, 0);
+window.addEventListener('load', () => { window.scrollTo(0, 0); });
+
+/* ── Cursor ── */
+const dot = document.getElementById('cursor-dot');
+const ring = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+
+;(function loop() {
+  rx += (mx - rx) * 0.14;
+  ry += (my - ry) * 0.14;
+  dot.style.left = mx + 'px';
+  dot.style.top = my + 'px';
+  ring.style.left = rx + 'px';
+  ring.style.top = ry + 'px';
+  requestAnimationFrame(loop);
+})();
+
+document.querySelectorAll('a, button, .amenity-card, .cta-btn').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+});
+
+
+/* ── Hero Clip-Path Scroll ── */
+const navLogoImg = document.querySelector('.nav-logo-img');
+const SECTION_HEIGHT = 1500;
+const heroCenter = document.getElementById('hero-center');
+const pimg1 = document.getElementById('pimg1');
+const pimg2 = document.getElementById('pimg2');
+const pimg3 = document.getElementById('pimg3');
+const pimg4 = document.getElementById('pimg4');
+
+// Parallax image data: [start-offset, end-offset] in px (Y translation)
+const parData = [
+  { el: pimg1, start: -120, end: 120 },
+  { el: pimg2, start: 120, end: -150 },
+  { el: pimg3, start: -80, end: 140 },
+  { el: pimg4, start: 60, end: -200 },
+];
+
+function lerp(a, b, t) { return a + (b - a) * t; }
+function clamp(v, min, max) { return Math.min(Math.max(v, min), max); }
+
+function updateHero() {
+  const scrollY = window.scrollY;
+  const progress = clamp(scrollY / SECTION_HEIGHT, 0, 1);
+  const eased = progress; // linear matches the React version
+
+  // Clip path: 25->0, 75->100
+  const c1 = 25 * (1 - eased);
+  const c2 = 75 + 25 * eased;
+  heroCenter.style.clipPath = `polygon(${c1}% ${c1}%, ${c2}% ${c1}%, ${c2}% ${c2}%, ${c1}% ${c2}%)`;
+
+  // Background size: 170% -> 100%
+  const bgSize = lerp(170, 100, eased);
+  heroCenter.style.backgroundSize = bgSize + '%';
+
+  // Opacity fade after SECTION_HEIGHT
+  if (scrollY > SECTION_HEIGHT) {
+    const fade = clamp((scrollY - SECTION_HEIGHT) / 500, 0, 1);
+    heroCenter.style.opacity = 1 - fade;
+  } else {
+    heroCenter.style.opacity = 1;
+  }
+
+  // Nav logo: fade out as hero scrolls away
+  const logoOpacity = clamp(1 - scrollY / 400, 0, 1);
+  navLogoImg.style.opacity = logoOpacity;
+  navLogoImg.style.pointerEvents = logoOpacity === 0 ? 'none' : 'all';
+
+  // Parallax images: visible after clip starts opening
+  const parOpacity = clamp((progress - 0.08) / 0.25, 0, 1);
+
+  parData.forEach(({ el, start, end }) => {
+    const wrapper = document.getElementById('hero-wrapper');
+    const rect = el.getBoundingClientRect();
+    const elTop = el.offsetTop; // relative to hero-sticky
+    // Simple scroll-based parallax: map scrollY 0->SECTION_HEIGHT to start->end
+    const yVal = lerp(start, end, clamp(scrollY / SECTION_HEIGHT, 0, 1));
+    el.style.transform = `translateY(${yVal}px)`;
+    el.style.opacity = parOpacity;
+  });
+}
+
+window.addEventListener('scroll', updateHero, { passive: true });
+updateHero();
+
+/* ── Zoom Parallax Gallery ── */
+const zoomContainer = document.getElementById('zoom-container');
+const zoomLayers = document.querySelectorAll('.zoom-layer');
+const scaleEnds = [4, 5, 6, 5, 8];
+
+function updateZoom() {
+  const containerTop = zoomContainer.getBoundingClientRect().top;
+  const containerHeight = zoomContainer.offsetHeight - window.innerHeight;
+  // progress: 0 at top, 1 at bottom
+  const progress = clamp(-containerTop / containerHeight, 0, 1);
+
+  zoomLayers.forEach((layer, i) => {
+    const scaleEnd = scaleEnds[i] || 4;
+    const scale = lerp(1, scaleEnd, progress);
+    layer.style.transform = `scale(${scale})`;
+  });
+}
+
+window.addEventListener('scroll', updateZoom, { passive: true });
+updateZoom();
+
+/* ── Scroll Reveal ── */
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+reveals.forEach(el => revealObserver.observe(el));
+</script>
+</body>
+</html>
