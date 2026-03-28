@@ -535,6 +535,90 @@ footer {
   width: 56px; height: 1px; background: var(--gold);
   opacity: 0.45; margin: 0 auto;
 }
+
+/* ═══════════════════════════════════
+   MOBILE — Touch cursor off
+═══════════════════════════════════ */
+@media (hover: none) and (pointer: coarse) {
+  body { cursor: auto; }
+  #cursor-dot, #cursor-ring { display: none; }
+  .cta-btn { cursor: pointer; }
+}
+
+/* ═══════════════════════════════════
+   TABLET (≤1024px)
+═══════════════════════════════════ */
+@media (max-width: 1024px) {
+  .why-card { padding: 48px 40px; }
+  .why-card-heading { font-size: 28px; }
+  .intro-grid { gap: 48px; }
+}
+
+/* ═══════════════════════════════════
+   MOBILE (≤768px)
+═══════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Nav */
+  nav { padding: 16px 20px; }
+  .nav-logo-img { height: 54px; }
+
+  /* Hero — shorter scroll tunnel */
+  #hero-wrapper { height: calc(800px + 100vh); }
+  #parallax-images { display: none; }
+
+  /* Intro */
+  #intro { padding: 72px 24px 80px; }
+  .intro-grid { grid-template-columns: 1fr; gap: 48px; }
+  .intro-body { max-width: 100%; }
+  .amenity-card { padding: 20px 16px; }
+  .amenity-name { font-size: 15px; }
+  .amenity-desc { font-size: 11px; }
+
+  /* Why */
+  #why { padding: 80px 24px; }
+  .why-header { margin-bottom: 56px; }
+  .why-grid { grid-template-columns: 1fr; }
+  .why-card { padding: 40px 24px; }
+  .why-card-heading { font-size: 24px; }
+  .why-card-num { font-size: 56px; top: 20px; right: 20px; }
+
+  /* Gallery */
+  .gallery-header { padding: 72px 24px 0; }
+  .zoom-layer:nth-child(n+2) { display: none; }
+  .zoom-layer:nth-child(1) .zoom-img-wrap { width: 88vw; height: 58vh; }
+
+  /* CTA */
+  #cta-section { padding: 96px 24px; }
+  .cta-btn { padding: 18px 36px; font-size: 12px; }
+  .cta-sub { font-size: 14px; }
+
+  /* Locations */
+  #locations { padding: 72px 0; }
+  .locations-header { padding: 0 24px; margin-bottom: 48px; }
+  .marquee-fade::before, .marquee-fade::after { width: 60px; }
+  .location-chip { padding: 0 28px; }
+  .location-name { font-size: 20px; }
+
+  /* Footer */
+  footer { padding: 48px 24px 32px; }
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 24px; margin-bottom: 28px; }
+  .footer-links { flex-wrap: wrap; gap: 16px 24px; }
+  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+  .footer-tagline { font-size: 12px; }
+}
+
+/* ═══════════════════════════════════
+   SMALL MOBILE (≤480px)
+═══════════════════════════════════ */
+@media (max-width: 480px) {
+  .amenities-grid { grid-template-columns: 1fr; }
+  .intro-heading { font-size: clamp(36px, 10vw, 52px); }
+  .why-title { font-size: clamp(32px, 9vw, 48px); }
+  .cta-heading { font-size: clamp(38px, 11vw, 60px); }
+  .gallery-title { font-size: clamp(32px, 9vw, 48px); }
+  .locations-title { font-size: clamp(28px, 8vw, 40px); }
+  .why-card-heading { font-size: 22px; }
+}
 </style>
 </head>
 <body>
@@ -915,7 +999,7 @@ document.querySelectorAll('a, button, .amenity-card, .cta-btn').forEach(el => {
 
 /* ── Hero Clip-Path Scroll ── */
 const navLogoImg = document.querySelector('.nav-logo-img');
-const SECTION_HEIGHT = 1500;
+const SECTION_HEIGHT = window.innerWidth <= 768 ? 800 : 1500;
 const heroCenter = document.getElementById('hero-center');
 const pimg1 = document.getElementById('pimg1');
 const pimg2 = document.getElementById('pimg2');
