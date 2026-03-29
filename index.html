@@ -409,7 +409,7 @@ nav {
 
 #zoom-container {
   position: relative;
-  height: 300vh;
+  height: 600vh;
 }
 #zoom-sticky {
   position: sticky; top: 0;
@@ -446,33 +446,37 @@ nav {
   width: 20vw; height: 25vh;
   position: absolute; top: calc(50% + 27.5vh); left: calc(50% + 5vw);
 }
-
-/* ═══════════════════════════════════
-   GALLERY GRID
-═══════════════════════════════════ */
-.gallery-grid {
-  columns: 3;
-  column-gap: 6px;
-  padding: 6px 6px 0;
-  background: var(--black);
+.zoom-layer:nth-child(6) .zoom-img-wrap {
+  width: 28vw; height: 32vh;
+  position: absolute; top: calc(50% - 40vh); left: calc(50% - 38vw);
 }
-.gallery-grid-item {
-  break-inside: avoid;
-  margin-bottom: 6px;
-  overflow: hidden;
+.zoom-layer:nth-child(7) .zoom-img-wrap {
+  width: 24vw; height: 28vh;
+  position: absolute; top: calc(50% - 46vh); left: calc(50% - 12vw);
 }
-.gallery-grid-item img {
-  width: 100%; height: auto; display: block;
-  object-fit: cover;
-  transition: transform 0.6s ease;
-  filter: brightness(0.88);
+.zoom-layer:nth-child(8) .zoom-img-wrap {
+  width: 18vw; height: 40vh;
+  position: absolute; top: calc(50% - 18vh); left: calc(50% + 38vw);
 }
-.gallery-grid-item:hover img {
-  transform: scale(1.04);
-  filter: brightness(1);
+.zoom-layer:nth-child(9) .zoom-img-wrap {
+  width: 28vw; height: 24vh;
+  position: absolute; top: calc(50% + 34vh); left: calc(50% - 16vw);
 }
-@media (max-width: 768px) {
-  .gallery-grid { columns: 2; }
+.zoom-layer:nth-child(10) .zoom-img-wrap {
+  width: 22vw; height: 30vh;
+  position: absolute; top: calc(50% - 26vh); left: calc(50% - 58vw);
+}
+.zoom-layer:nth-child(11) .zoom-img-wrap {
+  width: 20vw; height: 28vh;
+  position: absolute; top: calc(50% + 10vh); left: calc(50% + 46vw);
+}
+.zoom-layer:nth-child(12) .zoom-img-wrap {
+  width: 26vw; height: 26vh;
+  position: absolute; top: calc(50% - 50vh); left: calc(50% + 26vw);
+}
+.zoom-layer:nth-child(13) .zoom-img-wrap {
+  width: 24vw; height: 22vh;
+  position: absolute; top: calc(50% + 40vh); left: calc(50% - 36vw);
 }
 
 /* ═══════════════════════════════════
@@ -1000,35 +1004,57 @@ footer {
           <img src="Lazarus Site/screens/jordan-cormack-7bXa8ZYiVNw-unsplash.jpg" alt="Tulum coast">
         </div>
       </div>
+      <!-- Layer 6: Top left -->
+      <div class="zoom-layer" data-scale-start="1" data-scale-end="5">
+        <div class="zoom-img-wrap">
+          <img src="Lazarus Site/screens/roberto-nickson-U2FcwQnhs9k-unsplash.jpg" alt="Luxury villa">
+        </div>
+      </div>
+      <!-- Layer 7: Top center -->
+      <div class="zoom-layer" data-scale-start="1" data-scale-end="6">
+        <div class="zoom-img-wrap">
+          <img src="Lazarus Site/screens/antonio-araujo-UbfL4BUmI4o-unsplash.jpg" alt="Paradise view">
+        </div>
+      </div>
+      <!-- Layer 8: Right middle -->
+      <div class="zoom-layer" data-scale-start="1" data-scale-end="4">
+        <div class="zoom-img-wrap">
+          <img src="Lazarus Site/screens/durian-bullet-JCMQo028t3Q-unsplash.jpg" alt="Adventure">
+        </div>
+      </div>
+      <!-- Layer 9: Bottom center -->
+      <div class="zoom-layer" data-scale-start="1" data-scale-end="7">
+        <div class="zoom-img-wrap">
+          <img src="Lazarus Site/screens/karl-moore-9foZ78WFYbI-unsplash.jpg" alt="Nature">
+        </div>
+      </div>
+      <!-- Layer 10: Far left -->
+      <div class="zoom-layer" data-scale-start="1" data-scale-end="5">
+        <div class="zoom-img-wrap">
+          <img src="Lazarus Site/screens/darren-lawrence-K4BsLPTjKJA-unsplash.jpg" alt="Landscape">
+        </div>
+      </div>
+      <!-- Layer 11: Far right -->
+      <div class="zoom-layer" data-scale-start="1" data-scale-end="6">
+        <div class="zoom-img-wrap">
+          <img src="Lazarus Site/screens/vince-russell-z_b5fhL2wyc-unsplash.jpg" alt="Exploration">
+        </div>
+      </div>
+      <!-- Layer 12: Top right far -->
+      <div class="zoom-layer" data-scale-start="1" data-scale-end="5">
+        <div class="zoom-img-wrap">
+          <img src="Lazarus Site/screens/spencer-watson-jG1qamY6TGw-unsplash.jpg" alt="Views">
+        </div>
+      </div>
+      <!-- Layer 13: Bottom left far -->
+      <div class="zoom-layer" data-scale-start="1" data-scale-end="7">
+        <div class="zoom-img-wrap">
+          <img src="Lazarus Site/screens/christopher-kuzman-2LhCDvS_7xs-unsplash.jpg" alt="Experience">
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="gallery-grid">
-    <div class="gallery-grid-item reveal">
-      <img src="Lazarus Site/screens/roberto-nickson-U2FcwQnhs9k-unsplash.jpg" alt="Luxury retreat">
-    </div>
-    <div class="gallery-grid-item reveal reveal-delay-1">
-      <img src="Lazarus Site/screens/antonio-araujo-UbfL4BUmI4o-unsplash.jpg" alt="Adventure">
-    </div>
-    <div class="gallery-grid-item reveal reveal-delay-2">
-      <img src="Lazarus Site/screens/durian-bullet-JCMQo028t3Q-unsplash.jpg" alt="Paradise">
-    </div>
-    <div class="gallery-grid-item reveal">
-      <img src="Lazarus Site/screens/karl-moore-9foZ78WFYbI-unsplash.jpg" alt="Nature">
-    </div>
-    <div class="gallery-grid-item reveal reveal-delay-1">
-      <img src="Lazarus Site/screens/darren-lawrence-K4BsLPTjKJA-unsplash.jpg" alt="Landscape">
-    </div>
-    <div class="gallery-grid-item reveal reveal-delay-2">
-      <img src="Lazarus Site/screens/vince-russell-z_b5fhL2wyc-unsplash.jpg" alt="Exploration">
-    </div>
-    <div class="gallery-grid-item reveal">
-      <img src="Lazarus Site/screens/spencer-watson-jG1qamY6TGw-unsplash.jpg" alt="Views">
-    </div>
-    <div class="gallery-grid-item reveal reveal-delay-1">
-      <img src="Lazarus Site/screens/christopher-kuzman-2LhCDvS_7xs-unsplash.jpg" alt="Experience">
-    </div>
-  </div>
 </section>
 
 <!-- ═══ CTA ═══ -->
@@ -1305,7 +1331,7 @@ updateHero();
 /* ── Zoom Parallax Gallery ── */
 const zoomContainer = document.getElementById('zoom-container');
 const zoomLayers = document.querySelectorAll('.zoom-layer');
-const scaleEnds = [4, 5, 6, 5, 8];
+const scaleEnds = [4, 5, 6, 5, 8, 5, 6, 4, 7, 5, 6, 5, 7];
 
 function updateZoom() {
   const containerTop = zoomContainer.getBoundingClientRect().top;
