@@ -57,9 +57,9 @@ nav {
   pointer-events: none;
 }
 .nav-logo-img {
-  height: 150px;
+  height: 190px;
   width: auto;
-  opacity: 0.92;
+  opacity: 0.95;
   transition: opacity 0.3s;
   pointer-events: all;
 }
@@ -448,6 +448,34 @@ nav {
 }
 
 /* ═══════════════════════════════════
+   GALLERY GRID
+═══════════════════════════════════ */
+.gallery-grid {
+  columns: 3;
+  column-gap: 6px;
+  padding: 6px 6px 0;
+  background: var(--black);
+}
+.gallery-grid-item {
+  break-inside: avoid;
+  margin-bottom: 6px;
+  overflow: hidden;
+}
+.gallery-grid-item img {
+  width: 100%; height: auto; display: block;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  filter: brightness(0.88);
+}
+.gallery-grid-item:hover img {
+  transform: scale(1.04);
+  filter: brightness(1);
+}
+@media (max-width: 768px) {
+  .gallery-grid { columns: 2; }
+}
+
+/* ═══════════════════════════════════
    CTA SECTION
 ═══════════════════════════════════ */
 #cta-section {
@@ -608,9 +636,9 @@ footer {
   display: flex; align-items: center;
 }
 .footer-logo-img {
-  height: 120px;
+  height: 160px;
   width: auto;
-  opacity: 0.9;
+  opacity: 0.92;
 }
 .footer-links { display: flex; gap: 32px; }
 .footer-links a {
@@ -748,7 +776,7 @@ footer {
 
 <!-- NAV -->
 <nav id="main-nav">
-  <a href="#"><img class="nav-logo-img" src="Lazarus Site/CF078F28-F7EA-4D94-B288-26EC91C99464.png" alt="Project Lazarus"></a>
+  <a href="#"><img class="nav-logo-img" src="Lazarus Site/stock/CF078F28-F7EA-4D94-B288-26EC91C99464.png" alt="Project Lazarus"></a>
 </nav>
 
 <!-- ═══ HERO ═══ -->
@@ -974,6 +1002,33 @@ footer {
       </div>
     </div>
   </div>
+
+  <div class="gallery-grid">
+    <div class="gallery-grid-item reveal">
+      <img src="Lazarus Site/screens/roberto-nickson-U2FcwQnhs9k-unsplash.jpg" alt="Luxury retreat">
+    </div>
+    <div class="gallery-grid-item reveal reveal-delay-1">
+      <img src="Lazarus Site/screens/antonio-araujo-UbfL4BUmI4o-unsplash.jpg" alt="Adventure">
+    </div>
+    <div class="gallery-grid-item reveal reveal-delay-2">
+      <img src="Lazarus Site/screens/durian-bullet-JCMQo028t3Q-unsplash.jpg" alt="Paradise">
+    </div>
+    <div class="gallery-grid-item reveal">
+      <img src="Lazarus Site/screens/karl-moore-9foZ78WFYbI-unsplash.jpg" alt="Nature">
+    </div>
+    <div class="gallery-grid-item reveal reveal-delay-1">
+      <img src="Lazarus Site/screens/darren-lawrence-K4BsLPTjKJA-unsplash.jpg" alt="Landscape">
+    </div>
+    <div class="gallery-grid-item reveal reveal-delay-2">
+      <img src="Lazarus Site/screens/vince-russell-z_b5fhL2wyc-unsplash.jpg" alt="Exploration">
+    </div>
+    <div class="gallery-grid-item reveal">
+      <img src="Lazarus Site/screens/spencer-watson-jG1qamY6TGw-unsplash.jpg" alt="Views">
+    </div>
+    <div class="gallery-grid-item reveal reveal-delay-1">
+      <img src="Lazarus Site/screens/christopher-kuzman-2LhCDvS_7xs-unsplash.jpg" alt="Experience">
+    </div>
+  </div>
 </section>
 
 <!-- ═══ CTA ═══ -->
@@ -1139,7 +1194,7 @@ footer {
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo"><img src="Lazarus Site/CF078F28-F7EA-4D94-B288-26EC91C99464.png" alt="Project Lazarus" class="footer-logo-img"></div>
+    <div class="footer-logo"><img src="Lazarus Site/stock/CF078F28-F7EA-4D94-B288-26EC91C99464.png" alt="Project Lazarus" class="footer-logo-img"></div>
     <div class="footer-links">
       <a href="#">Instagram</a>
       <a href="#">TikTok</a>
