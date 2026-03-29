@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Project Lazarus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600&family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #000000;
+  --black2: #0d0b10;
+  --gold: #c5a96b;
+  --gold2: #e2c98a;
+  --cream: #f0ebe0;
+  --cream-dim: rgba(240,235,224,0.55);
+  --muted: rgba(240,235,224,0.35);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--cream);
+  font-family: 'Instrument Sans', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px 60px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+}
+.nav-logo-img {
+  height: 120px; width: auto; opacity: 0.92;
+  transition: opacity 0.3s;
+}
+.nav-logo-img:hover { opacity: 1; }
+
+/* MAIN */
+main {
+  flex: 1;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 180px 40px 100px;
+  width: 100%;
+}
+
+.page-label {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 20px; display: block;
+}
+
+h1 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(36px, 5.5vw, 68px);
+  font-weight: 300; letter-spacing: -0.03em; line-height: 1;
+  color: var(--cream); margin-bottom: 60px;
+}
+h1 em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; color: var(--gold2);
+  font-weight: 300; font-size: 1.1em;
+}
+
+.last-updated {
+  font-size: 12px; color: var(--muted); letter-spacing: 0.06em;
+  margin-bottom: 60px; display: block; margin-top: -48px;
+}
+
+.section {
+  margin-bottom: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(197,169,107,0.1);
+}
+.section:last-child { border-bottom: none; }
+
+h2 {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 16px;
+}
+
+p {
+  font-size: 15px; font-weight: 300; line-height: 1.8;
+  color: var(--cream-dim); margin-bottom: 12px;
+}
+p:last-child { margin-bottom: 0; }
+p strong { color: var(--cream); font-weight: 500; }
+
+ul {
+  margin: 12px 0 12px 20px;
+}
+ul li {
+  font-size: 15px; font-weight: 300; line-height: 1.8;
+  color: var(--cream-dim); margin-bottom: 6px;
+}
+
+a {
+  color: var(--gold); text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover { color: var(--gold2); }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid rgba(197,169,107,0.1);
+  padding: 40px 60px;
+}
+.footer-inner {
+  max-width: 760px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-links { display: flex; gap: 32px; }
+.footer-links a {
+  font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none; transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--gold); }
+.footer-copy {
+  font-size: 12px; color: var(--muted); letter-spacing: 0.04em;
+}
+
+@media (max-width: 640px) {
+  nav { padding: 20px 24px; }
+  .nav-logo-img { height: 80px; }
+  main { padding: 140px 24px 80px; }
+  footer { padding: 32px 24px; }
+  .footer-inner { flex-direction: column; gap: 20px; text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; gap: 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html"><img class="nav-logo-img" src="Lazarus Site/stock/CF078F28-F7EA-4D94-B288-26EC91C99464.png" alt="Project Lazarus"></a>
+</nav>
+
+<main>
+  <span class="page-label">Legal</span>
+  <h1>Privacy <em>Policy.</em></h1>
+  <span class="last-updated">Last updated: March 2026</span>
+
+  <div class="section">
+    <h2>1. Controller</h2>
+    <p>The controller responsible for data processing on this website within the meaning of the General Data Protection Regulation (GDPR) is:</p>
+    <p><strong>Adrian Honke</strong><br>
+    Email: <a href="mailto:adrian@project-lazarus.com">adrian@project-lazarus.com</a><br>
+    Phone: <a href="tel:+4917676611642">+49 176 76611642</a></p>
+    <p style="margin-top:16px;"><strong>Constantin Fiekers</strong><br>
+    Email: <a href="mailto:constantin@project-lazarus.com">constantin@project-lazarus.com</a><br>
+    Phone: <a href="tel:+4915226947011">+49 152 26947011</a></p>
+  </div>
+
+  <div class="section">
+    <h2>2. Hosting — Vercel</h2>
+    <p>This website is hosted by <strong>Vercel Inc.</strong>, 340 S Lemon Ave #4133, Walnut, CA 91789, USA.</p>
+    <p>When you visit our website, Vercel automatically collects and stores information in server log files that your browser transmits to us. This includes:</p>
+    <ul>
+      <li>IP address</li>
+      <li>Date and time of the request</li>
+      <li>Browser type and version</li>
+      <li>Operating system</li>
+      <li>Referrer URL</li>
+      <li>Pages visited</li>
+    </ul>
+    <p>This data is processed on the basis of Art. 6 (1)(f) GDPR (legitimate interest in the secure and efficient operation of the website). The data is not merged with other data sources and is deleted after 30 days.</p>
+    <p>Vercel is certified under the EU–US Data Privacy Framework. For more information, see Vercel's privacy policy at <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">vercel.com/legal/privacy-policy</a>.</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Analytics — Vercel Analytics</h2>
+    <p>We use <strong>Vercel Analytics</strong> to understand how visitors interact with our website. Vercel Analytics collects anonymized, aggregated data including page views, referrer information, and device type. It does not use cookies and does not track individual users across sessions or websites.</p>
+    <p>The legal basis is Art. 6 (1)(f) GDPR (legitimate interest in improving our website). No personal data is stored or transferred in a way that allows individual identification.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Application Form — Typeform</h2>
+    <p>Our application form is provided by <strong>Typeform SL</strong>, Carrer Bac de Roda 163, 08018 Barcelona, Spain.</p>
+    <p>When you submit an application, we collect the following personal data:</p>
+    <ul>
+      <li>Full name</li>
+      <li>Email address</li>
+      <li>Phone number</li>
+      <li>Any additional information you voluntarily provide in the form</li>
+    </ul>
+    <p>This data is collected and processed solely for the purpose of evaluating your application and contacting you regarding your participation in Project Lazarus.</p>
+    <p>The legal basis is Art. 6 (1)(b) GDPR (processing necessary for the performance of a contract or to take steps prior to entering into a contract) and Art. 6 (1)(a) GDPR (your consent by submitting the form).</p>
+    <p>Your data will be stored only as long as necessary to process your application and will not be passed on to third parties outside of Typeform's infrastructure. For more information, see Typeform's privacy policy at <a href="https://www.typeform.com/help/a/typeform-privacy-policy-360029259471/" target="_blank" rel="noopener">typeform.com</a>.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Cookies</h2>
+    <p>This website does not use cookies of any kind. No tracking cookies, analytics cookies, or third-party advertising cookies are set when you visit this site.</p>
+  </div>
+
+  <div class="section">
+    <h2>6. Your Rights under GDPR</h2>
+    <p>You have the following rights regarding your personal data:</p>
+    <ul>
+      <li><strong>Right of access</strong> (Art. 15 GDPR) — You may request information about the personal data we hold about you.</li>
+      <li><strong>Right to rectification</strong> (Art. 16 GDPR) — You may request correction of inaccurate data.</li>
+      <li><strong>Right to erasure</strong> (Art. 17 GDPR) — You may request deletion of your personal data where there is no longer a legal basis for its processing.</li>
+      <li><strong>Right to restriction</strong> (Art. 18 GDPR) — You may request that we restrict the processing of your data in certain circumstances.</li>
+      <li><strong>Right to data portability</strong> (Art. 20 GDPR) — You may request to receive your data in a structured, machine-readable format.</li>
+      <li><strong>Right to object</strong> (Art. 21 GDPR) — You may object to processing based on legitimate interests at any time.</li>
+      <li><strong>Right to withdraw consent</strong> (Art. 7 (3) GDPR) — Where processing is based on consent, you may withdraw it at any time without affecting the lawfulness of processing prior to withdrawal.</li>
+    </ul>
+    <p>To exercise any of these rights, please contact us at <a href="mailto:adrian@project-lazarus.com">adrian@project-lazarus.com</a> or <a href="mailto:constantin@project-lazarus.com">constantin@project-lazarus.com</a>.</p>
+  </div>
+
+  <div class="section">
+    <h2>7. Right to Lodge a Complaint</h2>
+    <p>You have the right to lodge a complaint with a supervisory authority. The competent supervisory authority in Germany is the data protection authority of the federal state in which you reside. A list of supervisory authorities can be found at <a href="https://www.bfdi.bund.de" target="_blank" rel="noopener">bfdi.bund.de</a>.</p>
+  </div>
+
+  <div class="section">
+    <h2>8. External Links</h2>
+    <p>Our website contains links to external websites (e.g. Instagram, TikTok, Typeform). This privacy policy applies only to our website. We have no control over and accept no responsibility for the privacy practices of third-party websites.</p>
+  </div>
+
+  <div class="section">
+    <h2>9. Changes to This Policy</h2>
+    <p>We reserve the right to update this privacy policy at any time to reflect changes in legal requirements or our services. The current version is always available on this page. We recommend checking this page periodically.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copy">© 2026 Project Lazarus. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="imprint.html">Imprint</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

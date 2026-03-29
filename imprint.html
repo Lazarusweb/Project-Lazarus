@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imprint — Project Lazarus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600&family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #000000;
+  --black2: #0d0b10;
+  --gold: #c5a96b;
+  --gold2: #e2c98a;
+  --cream: #f0ebe0;
+  --cream-dim: rgba(240,235,224,0.55);
+  --muted: rgba(240,235,224,0.35);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--cream);
+  font-family: 'Instrument Sans', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px 60px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+}
+.nav-logo-img {
+  height: 120px; width: auto; opacity: 0.92;
+  transition: opacity 0.3s;
+}
+.nav-logo-img:hover { opacity: 1; }
+
+/* MAIN */
+main {
+  flex: 1;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 180px 40px 100px;
+  width: 100%;
+}
+
+.page-label {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 20px; display: block;
+}
+
+h1 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 300; letter-spacing: -0.03em; line-height: 1;
+  color: var(--cream); margin-bottom: 60px;
+}
+h1 em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; color: var(--gold2);
+  font-weight: 300; font-size: 1.1em;
+}
+
+.section {
+  margin-bottom: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(197,169,107,0.1);
+}
+.section:last-child {
+  border-bottom: none;
+}
+
+h2 {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 16px;
+}
+
+p {
+  font-size: 15px; font-weight: 300; line-height: 1.8;
+  color: var(--cream-dim); margin-bottom: 8px;
+}
+p strong {
+  color: var(--cream); font-weight: 500;
+}
+
+a {
+  color: var(--gold); text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover { color: var(--gold2); }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid rgba(197,169,107,0.1);
+  padding: 40px 60px;
+}
+.footer-inner {
+  max-width: 760px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-links { display: flex; gap: 32px; }
+.footer-links a {
+  font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none; transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--gold); }
+.footer-copy {
+  font-size: 12px; color: var(--muted); letter-spacing: 0.04em;
+}
+
+@media (max-width: 640px) {
+  nav { padding: 20px 24px; }
+  .nav-logo-img { height: 80px; }
+  main { padding: 140px 24px 80px; }
+  footer { padding: 32px 24px; }
+  .footer-inner { flex-direction: column; gap: 20px; text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; gap: 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html"><img class="nav-logo-img" src="Lazarus Site/stock/CF078F28-F7EA-4D94-B288-26EC91C99464.png" alt="Project Lazarus"></a>
+</nav>
+
+<main>
+  <span class="page-label">Legal</span>
+  <h1>Im<em>print.</em></h1>
+
+  <div class="section">
+    <h2>Information according to § 5 TMG</h2>
+    <p><strong>Adrian Honke</strong><br>
+    Email: <a href="mailto:adrian@project-lazarus.com">adrian@project-lazarus.com</a><br>
+    Phone: <a href="tel:+4917676611642">+49 176 76611642</a></p>
+    <p style="margin-top:20px;"><strong>Constantin Fiekers</strong><br>
+    Email: <a href="mailto:constantin@project-lazarus.com">constantin@project-lazarus.com</a><br>
+    Phone: <a href="tel:+4915226947011">+49 152 26947011</a></p>
+  </div>
+
+  <div class="section">
+    <h2>Responsible for content according to § 55 Abs. 2 RStV</h2>
+    <p>Adrian Honke &amp; Constantin Fiekers</p>
+  </div>
+
+  <div class="section">
+    <h2>Dispute Resolution</h2>
+    <p>The European Commission provides a platform for online dispute resolution (OS): <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr</a>.</p>
+    <p style="margin-top:12px;">We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board.</p>
+  </div>
+
+  <div class="section">
+    <h2>Liability for Content</h2>
+    <p>As service providers, we are liable for our own content on these pages in accordance with § 7 Abs. 1 TMG under general law. According to §§ 8 to 10 TMG, however, we are not obligated to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity. Obligations to remove or block the use of information under general law remain unaffected. Any liability in this regard is only possible from the point in time at which a concrete legal violation becomes known. Upon becoming aware of such violations, we will remove the content immediately.</p>
+  </div>
+
+  <div class="section">
+    <h2>Liability for Links</h2>
+    <p>Our offer contains links to external websites of third parties, over whose content we have no influence. Therefore, we cannot assume any liability for these external contents. The respective provider or operator of the pages is always responsible for the content of the linked pages. The linked pages were checked for possible legal violations at the time of linking. Illegal content was not recognizable at the time of linking. However, permanent monitoring of the content of the linked pages is not reasonable without specific indications of a legal violation. Upon becoming aware of legal violations, we will remove such links immediately.</p>
+  </div>
+
+  <div class="section">
+    <h2>Copyright</h2>
+    <p>The content and works created by the site operators on these pages are subject to German copyright law. Duplication, processing, distribution, or any form of commercialization of such material beyond the scope of the copyright law shall require the prior written consent of its respective author or creator. Downloads and copies of this site are only permitted for private, non-commercial use. Insofar as the content on this site was not created by the operator, the copyrights of third parties are respected. Should you nonetheless become aware of a copyright infringement, please inform us accordingly. Upon becoming aware of legal violations, we will remove such content immediately.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copy">© 2026 Project Lazarus. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="imprint.html">Imprint</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
