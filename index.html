@@ -6,7 +6,7 @@
 <title>Project Lazarus — Tulum Retreat</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Pinyon+Script&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ── RESET & ROOT ── */
 :root {
@@ -57,7 +57,7 @@ nav {
   pointer-events: none;
 }
 .nav-logo-img {
-  height: 80px;
+  height: 150px;
   width: auto;
   opacity: 0.92;
   transition: opacity 0.3s;
@@ -84,7 +84,7 @@ nav {
 /* Center expanding image */
 #hero-center {
   position: absolute; inset: 0;
-  background-image: url('7DDB0AAD-7061-4C2C-8212-584ECA721762.jpeg');
+  background-image: url('Lazarus Site/7DDB0AAD-7061-4C2C-8212-584ECA721762.jpeg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 170%;
@@ -170,7 +170,7 @@ nav {
   font-weight: 400; line-height: 1.08; letter-spacing: -0.02em;
   color: var(--cream);
 }
-.intro-heading em { font-family: 'Pinyon Script', cursive; font-style: normal; color: var(--gold2); font-weight: 400; font-size: 1.45em; line-height: 0.85; vertical-align: middle; }
+.intro-heading em { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold2); font-weight: 300; font-size: 1.25em; line-height: 0.9; vertical-align: middle; }
 .intro-body {
   margin-top: 32px;
   font-size: 16px; font-weight: 300; line-height: 1.8;
@@ -244,7 +244,7 @@ nav {
   letter-spacing: -0.02em; color: var(--cream);
   line-height: 1.05;
 }
-.why-title em { font-family: 'Pinyon Script', cursive; font-style: normal; color: var(--gold2); font-weight: 400; font-size: 1.45em; line-height: 0.85; vertical-align: middle; }
+.why-title em { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold2); font-weight: 300; font-size: 1.25em; line-height: 0.9; vertical-align: middle; }
 .why-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
   border: 1px solid rgba(197,169,107,0.08);
@@ -299,7 +299,7 @@ nav {
   letter-spacing: -0.02em; color: var(--cream);
   line-height: 1.05;
 }
-.gallery-title em { font-family: 'Pinyon Script', cursive; font-style: normal; color: var(--gold2); font-weight: 400; font-size: 1.45em; line-height: 0.85; vertical-align: middle; }
+.gallery-title em { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold2); font-weight: 300; font-size: 1.25em; line-height: 0.9; vertical-align: middle; }
 
 #zoom-container {
   position: relative;
@@ -368,7 +368,7 @@ nav {
   font-weight: 300; line-height: 0.95; letter-spacing: -0.03em;
   color: var(--cream); margin-bottom: 28px;
 }
-.cta-heading em { font-family: 'Pinyon Script', cursive; font-style: normal; color: var(--gold2); font-weight: 400; font-size: 1.45em; line-height: 0.85; vertical-align: middle; }
+.cta-heading em { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold2); font-weight: 300; font-size: 1.25em; line-height: 0.9; vertical-align: middle; }
 .cta-sub {
   font-size: 15px; font-weight: 300; line-height: 1.7;
   color: var(--cream-dim); max-width: 480px; margin: 0 auto 56px;
@@ -418,7 +418,7 @@ nav {
   font-size: clamp(36px, 4vw, 60px); font-weight: 300;
   letter-spacing: -0.02em; color: var(--cream);
 }
-.locations-title em { font-family: 'Pinyon Script', cursive; font-style: normal; color: var(--gold2); font-weight: 400; font-size: 1.45em; line-height: 0.85; vertical-align: middle; }
+.locations-title em { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold2); font-weight: 300; font-size: 1.25em; line-height: 0.9; vertical-align: middle; }
 .locations-desc {
   margin-top: 16px;
   font-size: 14px; font-weight: 300; color: var(--cream-dim);
@@ -489,11 +489,13 @@ footer {
   margin-bottom: 48px;
 }
 .footer-logo {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 18px; letter-spacing: 0.18em; font-weight: 700;
-  text-transform: uppercase; color: var(--cream);
+  display: flex; align-items: center;
 }
-.footer-logo span { color: var(--gold); }
+.footer-logo-img {
+  height: 64px;
+  width: auto;
+  opacity: 0.88;
+}
 .footer-links { display: flex; gap: 32px; }
 .footer-links a {
   font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
@@ -560,7 +562,7 @@ footer {
 @media (max-width: 768px) {
   /* Nav */
   nav { padding: 16px 20px; }
-  .nav-logo-img { height: 54px; }
+  .nav-logo-img { height: 90px; }
 
   /* Hero — shorter scroll tunnel */
   #hero-wrapper { height: calc(800px + 100vh); }
@@ -629,7 +631,7 @@ footer {
 
 <!-- NAV -->
 <nav id="main-nav">
-  <a href="#"><img class="nav-logo-img" src="CF078F28-F7EA-4D94-B288-26EC91C99464.png" alt="Project Lazarus"></a>
+  <a href="#"><img class="nav-logo-img" src="Lazarus Site/CF078F28-F7EA-4D94-B288-26EC91C99464.png" alt="Project Lazarus"></a>
 </nav>
 
 <!-- ═══ HERO ═══ -->
@@ -641,16 +643,16 @@ footer {
     <!-- Floating parallax images -->
     <div id="parallax-images">
       <div class="par-img" id="pimg1">
-        <img src="C3D1309A-1866-43C6-83BE-9A0C88E434C3_1_201_a.jpeg" alt="Tulum villa at night">
+        <img src="Lazarus Site/C3D1309A-1866-43C6-83BE-9A0C88E434C3_1_201_a.jpeg" alt="Tulum villa at night">
       </div>
       <div class="par-img" id="pimg2">
-        <img src="C59807EB-E114-49C1-A94D-F73282FE7CE2.jpeg" alt="Private yacht">
+        <img src="Lazarus Site/C59807EB-E114-49C1-A94D-F73282FE7CE2.jpeg" alt="Private yacht">
       </div>
       <div class="par-img" id="pimg3">
-        <img src="9C19919C-CE7B-48F8-B3C8-F749010D739F.jpeg" alt="Cenote swim">
+        <img src="Lazarus Site/9C19919C-CE7B-48F8-B3C8-F749010D739F.jpeg" alt="Cenote swim">
       </div>
       <div class="par-img" id="pimg4">
-        <img src="6E80AAC2-48E6-4158-8D7E-2CE9A3BB5240.jpeg" alt="Tulum coast">
+        <img src="Lazarus Site/6E80AAC2-48E6-4158-8D7E-2CE9A3BB5240.jpeg" alt="Tulum coast">
       </div>
     </div>
   </div>
@@ -759,31 +761,31 @@ footer {
       <!-- Layer 1: Center -->
       <div class="zoom-layer" data-scale-start="1" data-scale-end="4">
         <div class="zoom-img-wrap">
-          <img src="7DDB0AAD-7061-4C2C-8212-584ECA721762.jpeg" alt="Villa pool">
+          <img src="Lazarus Site/7DDB0AAD-7061-4C2C-8212-584ECA721762.jpeg" alt="Villa pool">
         </div>
       </div>
       <!-- Layer 2: Top right -->
       <div class="zoom-layer" data-scale-start="1" data-scale-end="5">
         <div class="zoom-img-wrap" style="width:35vw;height:30vh;position:absolute;top:calc(50% - 42vh);left:calc(50% + 4vw)">
-          <img src="C3D1309A-1866-43C6-83BE-9A0C88E434C3_1_201_a.jpeg" alt="Night villa">
+          <img src="Lazarus Site/C3D1309A-1866-43C6-83BE-9A0C88E434C3_1_201_a.jpeg" alt="Night villa">
         </div>
       </div>
       <!-- Layer 3: Left -->
       <div class="zoom-layer" data-scale-start="1" data-scale-end="6">
         <div class="zoom-img-wrap" style="width:20vw;height:45vh;position:absolute;top:calc(50% - 10vh);left:calc(50% - 44vw)">
-          <img src="9C19919C-CE7B-48F8-B3C8-F749010D739F.jpeg" alt="Cenote">
+          <img src="Lazarus Site/9C19919C-CE7B-48F8-B3C8-F749010D739F.jpeg" alt="Cenote">
         </div>
       </div>
       <!-- Layer 4: Bottom right -->
       <div class="zoom-layer" data-scale-start="1" data-scale-end="5">
         <div class="zoom-img-wrap" style="width:28vw;height:28vh;position:absolute;top:calc(50% + 26vh);left:calc(50% + 22vw)">
-          <img src="C59807EB-E114-49C1-A94D-F73282FE7CE2.jpeg" alt="Yacht">
+          <img src="Lazarus Site/C59807EB-E114-49C1-A94D-F73282FE7CE2.jpeg" alt="Yacht">
         </div>
       </div>
       <!-- Layer 5: Bottom left -->
       <div class="zoom-layer" data-scale-start="1" data-scale-end="8">
         <div class="zoom-img-wrap" style="width:22vw;height:26vh;position:absolute;top:calc(50% + 24vh);left:calc(50% - 42vw)">
-          <img src="6E80AAC2-48E6-4158-8D7E-2CE9A3BB5240.jpeg" alt="Tulum coast">
+          <img src="Lazarus Site/6E80AAC2-48E6-4158-8D7E-2CE9A3BB5240.jpeg" alt="Tulum coast">
         </div>
       </div>
     </div>
@@ -953,7 +955,7 @@ footer {
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo"><span>P</span>ROJECT LAZARUS</div>
+    <div class="footer-logo"><img src="Lazarus Site/CF078F28-F7EA-4D94-B288-26EC91C99464.png" alt="Project Lazarus" class="footer-logo-img"></div>
     <div class="footer-links">
       <a href="#">Instagram</a>
       <a href="#">TikTok</a>
