@@ -446,37 +446,40 @@ nav {
   width: 20vw; height: 25vh;
   position: absolute; top: calc(50% + 27.5vh); left: calc(50% + 5vw);
 }
+/* roberto-nickson — enlarged */
 .zoom-layer:nth-child(6) .zoom-img-wrap {
-  width: 28vw; height: 32vh;
-  position: absolute; top: calc(50% - 40vh); left: calc(50% - 38vw);
+  width: 34vw; height: 38vh;
+  position: absolute; top: calc(50% - 44vh); left: calc(50% - 44vw);
 }
+/* durian-bullet */
 .zoom-layer:nth-child(7) .zoom-img-wrap {
-  width: 24vw; height: 28vh;
-  position: absolute; top: calc(50% - 46vh); left: calc(50% - 12vw);
-}
-.zoom-layer:nth-child(8) .zoom-img-wrap {
   width: 18vw; height: 40vh;
   position: absolute; top: calc(50% - 18vh); left: calc(50% + 24vw);
 }
-.zoom-layer:nth-child(9) .zoom-img-wrap {
+/* karl-moore — moved up */
+.zoom-layer:nth-child(8) .zoom-img-wrap {
   width: 28vw; height: 24vh;
-  position: absolute; top: calc(50% + 34vh); left: calc(50% - 16vw);
+  position: absolute; top: calc(50% + 22vh); left: calc(50% - 16vw);
 }
-.zoom-layer:nth-child(10) .zoom-img-wrap {
+/* darren-lawrence */
+.zoom-layer:nth-child(9) .zoom-img-wrap {
   width: 22vw; height: 30vh;
   position: absolute; top: calc(50% - 26vh); left: calc(50% - 43vw);
 }
-.zoom-layer:nth-child(11) .zoom-img-wrap {
+/* vince-russell */
+.zoom-layer:nth-child(10) .zoom-img-wrap {
   width: 20vw; height: 28vh;
   position: absolute; top: calc(50% + 10vh); left: calc(50% + 28vw);
 }
-.zoom-layer:nth-child(12) .zoom-img-wrap {
+/* spencer-watson-jG1q */
+.zoom-layer:nth-child(11) .zoom-img-wrap {
   width: 26vw; height: 26vh;
   position: absolute; top: calc(50% - 42vh); left: calc(50% + 18vw);
 }
-.zoom-layer:nth-child(13) .zoom-img-wrap {
+/* christopher-kuzman — moved up and more centered */
+.zoom-layer:nth-child(12) .zoom-img-wrap {
   width: 24vw; height: 22vh;
-  position: absolute; top: calc(50% + 40vh); left: calc(50% - 36vw);
+  position: absolute; top: calc(50% + 26vh); left: calc(50% - 28vw);
 }
 
 /* ═══════════════════════════════════
@@ -982,7 +985,7 @@ footer {
       </div>
       <!-- Layer 2: Top right -->
       <div class="zoom-layer" data-scale-start="1" data-scale-end="5">
-        <div class="zoom-img-wrap" style="width:35vw;height:30vh;position:absolute;top:calc(50% - 42vh);left:calc(50% + 4vw)">
+        <div class="zoom-img-wrap" style="width:36vw;height:36vh;position:absolute;top:calc(50% - 46vh);left:calc(50% - 4vw)">
           <img src="Lazarus Site/screens/hyukjoon-sohn-5-FXEB2L9BQ-unsplash.jpg" alt="Night villa">
         </div>
       </div>
@@ -994,13 +997,13 @@ footer {
       </div>
       <!-- Layer 4: Bottom right -->
       <div class="zoom-layer" data-scale-start="1" data-scale-end="5">
-        <div class="zoom-img-wrap" style="width:28vw;height:28vh;position:absolute;top:calc(50% + 26vh);left:calc(50% + 22vw)">
+        <div class="zoom-img-wrap" style="width:28vw;height:28vh;position:absolute;top:calc(50% + 14vh);left:calc(50% + 16vw)">
           <img src="Lazarus Site/screens/ender-vatan-vzu-CXpBUTA-unsplash.jpg" alt="Yacht">
         </div>
       </div>
       <!-- Layer 5: Bottom left -->
       <div class="zoom-layer" data-scale-start="1" data-scale-end="8">
-        <div class="zoom-img-wrap" style="width:22vw;height:26vh;position:absolute;top:calc(50% + 24vh);left:calc(50% - 42vw)">
+        <div class="zoom-img-wrap" style="width:22vw;height:26vh;position:absolute;top:calc(50% + 12vh);left:calc(50% - 28vw)">
           <img src="Lazarus Site/screens/jordan-cormack-7bXa8ZYiVNw-unsplash.jpg" alt="Tulum coast">
         </div>
       </div>
@@ -1008,12 +1011,6 @@ footer {
       <div class="zoom-layer" data-scale-start="1" data-scale-end="5">
         <div class="zoom-img-wrap">
           <img src="Lazarus Site/screens/roberto-nickson-U2FcwQnhs9k-unsplash.jpg" alt="Luxury villa">
-        </div>
-      </div>
-      <!-- Layer 7: Top center -->
-      <div class="zoom-layer" data-scale-start="1" data-scale-end="6">
-        <div class="zoom-img-wrap">
-          <img src="Lazarus Site/screens/antonio-araujo-UbfL4BUmI4o-unsplash.jpg" alt="Paradise view">
         </div>
       </div>
       <!-- Layer 8: Right middle -->
@@ -1331,7 +1328,7 @@ updateHero();
 /* ── Zoom Parallax Gallery ── */
 const zoomContainer = document.getElementById('zoom-container');
 const zoomLayers = document.querySelectorAll('.zoom-layer');
-const scaleEnds = [4, 5, 6, 5, 8, 5, 6, 4, 7, 5, 6, 5, 7];
+const scaleEnds = [4, 5, 6, 5, 8, 5, 4, 7, 5, 6, 5, 7];
 
 function updateZoom() {
   const containerTop = zoomContainer.getBoundingClientRect().top;
