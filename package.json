@@ -1,0 +1,16 @@
+{
+  "name": "project-lazarus",
+  "version": "1.0.0",
+  "description": "Project Lazarus — Tulum Retreat Website",
+  "type": "module",
+  "scripts": {
+    "dev": "node serve.mjs",
+    "start": "node serve.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1"
+  }
+}
